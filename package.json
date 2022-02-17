@@ -1,0 +1,22 @@
+{
+  "name": "splat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Z4R4N05/splat.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Z4R4N05/splat/issues"
+  },
+  "homepage": "https://github.com/Z4R4N05/splat#readme",
+  "dependencies": {
+    "inquirer": "^8.2.0"
+  }
+}
