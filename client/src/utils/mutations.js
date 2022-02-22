@@ -23,3 +23,34 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const ADD_PALETTE = gql`
+mutation addPalette($paletteText: String!) {
+  addPalette(paletteText: $paletteText) {
+    _id
+    paletteText
+    createdAt
+    username
+    commentCount
+    comment {
+      _id
+    }
+  }
+}
+
+`;
+
+export const ADD_COMMENT = gql`
+  mutation addComment($paletteId: ID!, $commentBody: String!) {
+    addComment(paletteId: $paletteId, commentBody: $commentBody) {
+      _id
+      commentCount
+      comment {
+        _id
+        commentBody
+        createdAt
+        username
+      }
+    }
+  }
+`;
