@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
@@ -92,6 +93,7 @@ const Signup = () => {
           Submit
         </button>
       </form>
+      <Footer/>
     </>
   );
 };
