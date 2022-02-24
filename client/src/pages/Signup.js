@@ -1,13 +1,28 @@
 // see SignupForm.js for comments
-
 import React, { useState } from "react";
+
+//MUI
+
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import CssBaseline from '@mui/material/CssBaseline';
+import TextField from '@mui/material/TextField';
+import Link from '@mui/material/Link';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
 import { useHistory } from "react-router-dom";
 import Auth from "../utils/auth";
+
+const theme = createTheme();
 
 const Signup = () => {
   const [userFormData, setUserFormData] = useState({
@@ -50,49 +65,80 @@ const Signup = () => {
   return (
     <>
       <Navbar />
-      <form onSubmit={handleFormSubmit}>
-        <label htmlFor="username">Username</label>
-        <input
-          type="text"
-          placeholder="Your username"
-          name="username"
-          onChange={handleInputChange}
-          value={userFormData.username}
-          required
-        />
-
-        <label htmlFor="email">Email</label>
-        <input
-          type="text"
-          placeholder="Your email"
-          name="email"
-          onChange={handleInputChange}
-          value={userFormData.email}
-          required
-        />
-
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          placeholder="Your password"
-          name="password"
-          onChange={handleInputChange}
-          value={userFormData.password}
-          required
-        />
-        <button
-          disabled={
-            !(
-              userFormData.email &&
-              userFormData.password &&
-              userFormData.username
-            )
-          }
-          type="submit"
+      <ThemeProvider theme={theme}>
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <Box
+          sx={{
+            marginTop: 8,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
         >
-          Submit
-        </button>
-      </form>
+          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Sign up
+          </Typography>
+          <Box component="form" noValidate onSubmit={handleFormSubmit} sx={{ mt: 3 }}>
+            <Grid container spacing={2}>
+              <Grid item xs={12}>
+                <TextField
+                  autoComplete="UserName"
+                  name="UserName"
+                  required
+                  fullWidth
+                  id="user"
+                  label="UserName"
+                  autoFocus
+                  onChange={handleInputChange}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  id="email"
+                  label="Email Address"
+                  name="email"
+                  autoComplete="email"
+                  onChange={handleInputChange}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  name="password"
+                  label="Password"
+                  type="password"
+                  id="password"
+                  autoComplete="new-password"
+                  onChange={handleInputChange}
+                />
+              </Grid>
+            </Grid>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >
+              Sign Up
+            </Button>
+            <Grid container justifyContent="flex-end">
+              <Grid item>
+                <Link href="/login" variant="body2">
+                  Already have an account? Sign in
+                </Link>
+              </Grid>
+            </Grid>
+          </Box>
+        </Box>
+      </Container>
+    </ThemeProvider>
       <Footer/>
     </>
   );
