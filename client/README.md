@@ -12,21 +12,14 @@ SO THAT I can expand my knowledge of color patterns or possibilities for project
 ![Screenshot of live app](./)
 
 ## Live App
-Visit the live site at [](https://.herokuapp.com/)
+Visit the live site at [color-splat.herokuapp.com](https://color-splat.herokuapp.com/)
 
 ## Technologies Used
 * Node
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
+* heroku app
+* mern stack
+* mongo db
+* mui
 
 ## Questions
 For questions visit [github.com/Z4R4N05](https://github.com/Z4R4N05).
