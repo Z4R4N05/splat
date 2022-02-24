@@ -1,11 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import TextareaAutosize from '@mui/base/TextareaAutosize';
+import Paper from '@mui/material/Paper';
 
-import { useMutation } from '@apollo/client';
-import { ADD_PALETTE } from '../../utils/mutations';
-import { QUERY_PALETTE, QUERY_ME } from '../../utils/queries';
+import { useMutation } from "@apollo/client";
+import { ADD_PALETTE } from "../../utils/mutations";
+import { QUERY_PALETTE, QUERY_ME } from "../../utils/queries";
 
 const PaletteForm = () => {
-  const [PaletteText, setText] = useState('');
+  const [PaletteText, setText] = useState("");
   const [characterCount, setCharacterCount] = useState(0);
 
   const [addPalette, { error }] = useMutation(ADD_PALETTE, {
@@ -47,38 +54,49 @@ const PaletteForm = () => {
       await addPalette({
         variables: { PaletteText },
       });
-
+      
       // clear form value
-      setText('');
+      setText("");
       setCharacterCount(0);
     } catch (e) {
       console.error(e);
     }
   };
-
+  
   return (
-    <div>
-      <p
-        className={`m-0 ${characterCount === 280 || error ? 'text-error' : ''}`}
-      >
-        Character Count: {characterCount}/280
-        {error && <span className="ml-2">Something went wrong...</span>}
-      </p>
-      <form
-        className="flex-row justify-center justify-space-between-md align-stretch"
-        onSubmit={handleFormSubmit}
-      >
-        <textarea
-          placeholder="Here's a new Palette..."
-          value={PaletteText}
-          className="form-input col-12 col-md-9"
-          onChange={handleChange}
-        ></textarea>
-        <button className="btn col-12 col-md-3" type="submit">
-          Submit
-        </button>
-      </form>
-    </div>
+    <Card sx={{ maxWidth: 345 }}>
+      <Paper elevation={3} />
+      <CardContent>
+        <form
+          className="flex-row justify-center justify-space-between-md align-stretch"
+          onSubmit={handleFormSubmit}
+        >
+          <Typography gutterBottom variant="h8" component="div">
+            Description
+          </Typography>
+
+          <Typography variant="body2" color="text.secondary">
+            <TextareaAutosize
+              aria-label="maximum height"
+              maxRows={5}
+              style={{ width: 300 }}
+              value={PaletteText}
+              className={`m-0 ${
+                characterCount === 280 || error ? "text-error" : ""
+              }`}
+              className="form-input col-12 col-md-9"
+              onChange={handleChange}
+            />
+          </Typography>
+
+          <CardActions>
+            <Button size="small" type="submit">
+              Submit
+            </Button>
+          </CardActions>
+        </form>
+      </CardContent>
+    </Card>
   );
 };
 

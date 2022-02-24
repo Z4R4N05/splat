@@ -1,9 +1,10 @@
 import React from 'react';
-import Navbar from '../components/Navbar'
+import Comment from '../components/Comment';
 
 function Home(){
     return (<>
-        <Navbar/> 
+        
+        <Comment/> 
         <h1>Home</h1>
     </>)
 }
