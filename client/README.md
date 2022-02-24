@@ -9,24 +9,24 @@ I WANT to be able to look up different color palettes<br/>
 SO THAT I can expand my knowledge of color patterns or possibilities for projects involving color.
 
 ## Screenshot
-![Screenshot of live app](./screenshot.png)
+![Screenshot of live app](./)
 
 ## Live App
 Visit the live site at [](https://.herokuapp.com/)
 
 ## Technologies Used
 * Node
-* Express
-* Sequelize 
-* Handlebars
-* UIkit
-* SendGrid
-* bcrypt
-* connect-session-sequelize
-* express-session
-* dotenv
-* MySQL
-* Jest
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
 
 ## Questions
 For questions visit [github.com/Z4R4N05](https://github.com/Z4R4N05).
