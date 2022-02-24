@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import TextareaAutosize from '@mui/base/TextareaAutosize';
 
 import { useMutation } from '@apollo/client';
 import { ADD_COMMENT } from '../../utils/mutations';
@@ -45,18 +48,24 @@ const CommentForm = ({ commentid }) => {
         className="flex-row justify-center justify-space-between-md align-stretch"
         onSubmit={handleFormSubmit}
       >
-        <textarea
-          placeholder="Leave a comment on this Palette..."
-          value={commentBody}
-          className="form-input col-12 col-md-9"
-          onChange={handleChange}
-        ></textarea>
+        <Typography variant="body2" color="text.secondary">
+          <TextareaAutosize
+            aria-label="maximum height"
+            maxRows={5}
+            style={{ width: 300 }}
+            value={commentBody}
+            className={`m-0 ${
+              characterCount === 280 || error ? "text-error" : ""
+            }`}
+            className="form-input col-12 col-md-9"
+            onChange={handleChange}
+          />
+        </Typography>
 
-        <button className="btn col-12 col-md-3" type="submit">
+        <Button size="small" type="submit">
           Submit
-        </button>
+        </Button>
       </form>
-
       {error && <div>Something went wrong...</div>}
     </div>
   );
