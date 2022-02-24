@@ -1,12 +1,12 @@
-import React from 'react';
-import Comment from '../components/Comment';
+import React from "react";
+import Navbar from "../components/Navbar";
 
-function Home(){
-    return (<>
-        
-        <Comment/> 
-        <h1>Home</h1>
-    </>)
+function Home() {
+  return (
+    <>
+      <Navbar />
+    </>
+  );
 }
 
 export default Home;

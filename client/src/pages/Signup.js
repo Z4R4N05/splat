@@ -1,6 +1,7 @@
 // see SignupForm.js for comments
 
 import React, { useState } from "react";
+import Navbar from "../components/Navbar";
 
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
@@ -13,7 +14,7 @@ const Signup = () => {
     email: "",
     password: "",
   });
-  const history = useHistory()
+  const history = useHistory();
   const [addUser, { error }] = useMutation(ADD_USER);
 
   const handleInputChange = (event) => {
@@ -29,7 +30,7 @@ const Signup = () => {
         variables: { ...userFormData },
       });
       Auth.login(data.addUser.token);
-      history.push('/')
+      history.push("/");
     } catch (e) {
       console.error(e);
     }
@@ -41,12 +42,13 @@ const Signup = () => {
     });
   };
 
-  if(Auth.loggedIn()){
-    history.push('/')
+  if (Auth.loggedIn()) {
+    history.push("/");
   }
 
   return (
     <>
+      <Navbar />
       <form onSubmit={handleFormSubmit}>
         <label htmlFor="username">Username</label>
         <input
@@ -78,7 +80,13 @@ const Signup = () => {
           required
         />
         <button
-          disabled={!(userFormData.email && userFormData.password && userFormData.username)}
+          disabled={
+            !(
+              userFormData.email &&
+              userFormData.password &&
+              userFormData.username
+            )
+          }
           type="submit"
         >
           Submit
