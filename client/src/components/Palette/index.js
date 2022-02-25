@@ -11,7 +11,7 @@ import { useMutation } from "@apollo/client";
 import { ADD_PALETTE } from "../../utils/mutations";
 import { QUERY_PALETTE, QUERY_ME } from "../../utils/queries";
 
-const PaletteForm = () => {
+const Palette = () => {
   const [PaletteText, setText] = useState("");
   const [characterCount, setCharacterCount] = useState(0);
 
@@ -84,8 +84,7 @@ const PaletteForm = () => {
               className={`m-0 ${
                 characterCount === 280 || error ? "text-error" : ""
               }`}
-              className="form-input col-12 col-md-9"
-              onChange={handleChange}
+
             />
           </Typography>
 
@@ -100,4 +99,4 @@ const PaletteForm = () => {
   );
 };
 
-export default PaletteForm;
+export default Palette;
