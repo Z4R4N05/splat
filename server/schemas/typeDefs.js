@@ -10,7 +10,7 @@ const typeDefs = gql`
 
   type Palette {
     _id: ID
-    thoughtText: String
+    paletteText: String
     createdAt: String
     username: String
     commentCount: Int
@@ -42,7 +42,7 @@ const typeDefs = gql`
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    addPalette(paletteText: Palette!): Palette
+    addPalette(paletteText: String!): Palette
     addComment(paletteId: ID!, commentBody: String!): Palette
   }
 `;
