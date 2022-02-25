@@ -4,8 +4,8 @@ const Footer = () => {
   return (
     <footer className="w-100 mt-auto bg-secondary p-4">
       <div className="container">
-          <p>ffffffff </p>
-        &copy;{new Date().getFullYear()} by 
+          <p>Thank you for your support and hope you enjoyed our app!  </p>
+        &copy;{new Date().getFullYear()} Splat by Christian Rodriguez, Eddy Souza and Ismael Espana
       </div>
     </footer>
   );
