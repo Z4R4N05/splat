@@ -20,9 +20,7 @@ function Home() {
     "#ec015a",
   ];
 
-  const [background, setBackground] = useSate("#071415");
-  const[current, setCurrent] = useState(null);
-
+ 
   return (
     <>
       <h1>Splat</h1>
